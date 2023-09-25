@@ -2,5 +2,4 @@ spotipy_project-env/
 examples.py
 *.env
 *.cfg
-*.png
 *.cache

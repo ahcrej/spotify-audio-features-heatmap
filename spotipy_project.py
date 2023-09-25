@@ -15,13 +15,13 @@ load_dotenv()
 sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
 
-def remap(oldValue, oldMin, oldMax, newMin, newMax):
+def remap_value(old_value, old_min, old_max, new_min, new_max):
     # Remaps a value between an old range, to a value within a new range whilst maintaing the same ratio
-    oldRange = (oldMax - oldMin)
-    newRange = (newMax - newMin)
-    newValue = (((oldValue - oldMin) * newRange) / oldRange) + newMin
+    old_range = (old_max - old_min)
+    new_range = (new_max - new_min)
+    new_value = (((old_value - old_min) * new_range) / old_range) + new_min
 
-    return newValue
+    return new_value
 
 
 def get_top_five_dict(artist_URL):
@@ -71,7 +71,7 @@ def get_audio_features(track_dict):
 
         # Remap the loudness to a value within 0 and 1 (previously -60 to 0 dB)
         track_copy["loudness"] = round(
-            remap(track_copy["loudness"], -60, 0, 0, 1), 3)
+            remap_value(track_copy["loudness"], -60, 0, 0, 1), 3)
 
         # Add key-value (track name: track audio features) to the dictionary of dictionaries
         d[track_name] = track_copy
@@ -81,7 +81,7 @@ def get_audio_features(track_dict):
 
 def main():
     # Set the link of the album to be analysed
-    album_URL = "https://open.spotify.com/album/3HLwiAL4LbHVwQaVCl3tnR"
+    album_URL = "https://open.spotify.com/album/07w0rG5TETcyihsEIZR3qG"
 
     # Get the audio features of each song of an album
     album_dict = get_album_dict(album_URL)
@@ -92,9 +92,9 @@ def main():
 
     # Create a heatmap using Seaborn
     # Set the figure size
-    plt.figure(figsize=(16, 6))
-    # 'annot' for displaying values, 'cmap' for color map, 'fmt' for format of annotations
-    sns.heatmap(df, annot=True, cmap='YlGnBu', fmt='.2f')
+    plt.figure(figsize=(12, 6))
+    # 'annot' for displaying values, 'cmap' for color map, 'fmt' for format of annotations, 'annot_kws' for annotation size, 'vmin' for lower colour bar range, 'vmax' for upper colour bar range
+    sns.heatmap(df, annot=True, cmap='YlGnBu', fmt='.2f', annot_kws={"size": 6})
 
     # Customize the plot (optional)
     plot_title = get_album_name(album_URL)
