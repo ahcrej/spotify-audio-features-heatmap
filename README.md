@@ -44,3 +44,9 @@ python spotipy_project.py
 ```
 - The Spotify album to be analysed can be set by changing the "album_name" variable to a link of the desired album.
 - The heatmap will be generated and saved as album_name.png in the project directory.
+
+## Example
+
+Here's an example heatmap generated for the album "SOS" by SZA:
+
+![SOS Heatmap](SOS_Heatmap.png)
