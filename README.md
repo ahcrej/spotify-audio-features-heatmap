@@ -1,8 +1,5 @@
 # Spotify Audio Features Heatmap
 
-![Python Version](https://img.shields.io/badge/Python-3.6%2B-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-
 ## Overview
 
 This Python project uses the Spotipy library to interact with the Spotify Web API. Given an album URL, it retrieves the audio features of all the tracks on that album and plots a Seaborn heatmap to visualize these features.
