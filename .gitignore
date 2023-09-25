@@ -1,5 +1,7 @@
-spotipy_project-env/
-examples.py
-*.env
-*.cfg
-*.cache
+# Ignore everything
+*
+# But not these files
+!.gitignore
+!README.md
+!SOS_Heatmap.png
+!spotipy_project.py
