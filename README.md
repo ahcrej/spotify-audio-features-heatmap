@@ -38,7 +38,7 @@ SPOTIPY_CLIENT_SECRET = your_client_secret
 4. Run the script by executing the following command in your terminal or command prompt, and replace `album_url` with the Spotify album URL you want to analyze:
 
 ```bash
-python spotify_heatmap.py album_url
+python spotipy_heatmap.py album_url
 ```
 - For example, to analyze the album "SOS" by SZA, you would run:
 
