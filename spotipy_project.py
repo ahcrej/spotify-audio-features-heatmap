@@ -1,3 +1,4 @@
+import sys
 import pandas as pd
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy
@@ -81,7 +82,12 @@ def get_audio_features(track_dict):
 
 def main():
     # Set the link of the album to be analysed
-    album_URL = "https://open.spotify.com/album/07w0rG5TETcyihsEIZR3qG"
+    # album_URL = "https://open.spotify.com/album/07w0rG5TETcyihsEIZR3qG"
+    # Ensure correct usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: python spotipy_project.py spotify_album_url")
+    
+    album_URL = sys.argv[1]
 
     # Get the audio features of each song of an album
     album_dict = get_album_dict(album_URL)
