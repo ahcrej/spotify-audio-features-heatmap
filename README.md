@@ -12,6 +12,7 @@ This Python project uses the Spotipy library to interact with the Spotify Web AP
 - Matplotlib library (for displaying the heatmap)
 - Pandas library (for data manipulation)
 - python-dotenv library (for managing environment variables)
+- sys library (for command line arguments)
 
 
 
@@ -34,12 +35,16 @@ SPOTIPY_CLIENT_ID = your_client_id
 SPOTIPY_CLIENT_SECRET = your_client_secret
 ```
 
-4. Run the script:
+4. Run the script by executing the following command in your terminal or command prompt, and replace `album_url` with the Spotify album URL you want to analyze:
 
-``` python 
-python spotipy_project.py
+```bash
+python spotify_heatmap.py album_url
 ```
-- The Spotify album to be analysed can be set by changing the "album_name" variable to a link of the desired album.
+- For example, to analyze the album "SOS" by SZA, you would run:
+
+```bash
+python spotipy_project.py https://open.spotify.com/album/07w0rG5TETcyihsEIZR3qG
+```
 - The heatmap will be generated and saved as album_name.png in the project directory.
 
 ## Example
