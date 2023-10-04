@@ -96,6 +96,9 @@ def main():
     # Convert the dictionary to a DataFrame for Seaborn
     df = pd.DataFrame(album_features)
 
+    # Transpose DataFrame so that the columns (track names) become rows
+    df = df.T
+
     # Create a heatmap using Seaborn
     # Set the figure size
     plt.figure(figsize=(12, 6))
